@@ -147,21 +147,13 @@ REACT_APP_API_URL=http://localhost:3001/api
    npm install
    ```
 
-2. **Start the backend server:**
+2. **Start project:**
    ```bash
-   cd backend
-   npm start
-   # Server will run on http://localhost:3001
+   in root directory
+   npm run dev
+   # Project will run on http://localhost:3000
    ```
-
-3. **Start the frontend development server:**
-   ```bash
-   cd frontend
-   npm start
-   # Frontend will run on http://localhost:3000
-   ```
-
-4. **Access the application:**
+3. **Access the application:**
    - Open your browser to http://localhost:3000
    - The backend API will be available at http://localhost:3001
 
@@ -290,36 +282,6 @@ docker-compose down
 Authentication is currently **optional**. The application works without login, but authentication endpoints are available for future use:
 - `POST /api/auth/login`
 - `POST /api/auth/register`
-
-## 📁 Project Structure
-
-```
-rooming-list-manager/
-├── backend/
-│   ├── config/
-│   │   └── database.js          # PostgreSQL configuration
-│   │   └── routes/
-│   │       ├── roomingLists.js      # Rooming list endpoints
-│   │       ├── bookings.js          # Booking endpoints
-│   │       ├── data.js              # Data management
-│   │       └── events.js            # Event endpoints
-│   ├── middleware/
-│   └── server.js                # Express server setup
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Dashboard.js     # Main dashboard
-│   │   │   ├── RoomingListCard.js # Individual cards
-│   │   │   └── FiltersAndSearch.js # Insert button
-│   │   ├── services/
-│   │   │   └── api.js           # API client
-│   │   └── context/
-│   │       └── AppContext.js    # State management
-├── rooming-lists.json           # Sample rooming lists data
-├── bookings.json                # Sample bookings data
-├── rooming-list-bookings.json   # Sample relationships data
-└── README.md
-```
 
 ## 🆘 Troubleshooting
 
