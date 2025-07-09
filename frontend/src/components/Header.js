@@ -1,14 +1,13 @@
-import React from 'react';
 import { UserIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
 import { useApp } from '../context/AppContext';
 
 const Header = () => {
-  const { 
-    isAuthenticated, 
-    user, 
-    logout, 
-    openLoginModal, 
-    openRegisterModal 
+  const {
+    isAuthenticated,
+    user,
+    logout,
+    openLoginModal,
+    openRegisterModal
   } = useApp();
 
   return (
@@ -87,4 +86,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;

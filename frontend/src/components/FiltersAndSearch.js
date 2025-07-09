@@ -4,10 +4,10 @@ import { useDebounce } from 'use-debounce';
 import { useApp } from '../context/AppContext';
 
 const FiltersAndSearch = () => {
-  const { 
-    filters, 
-    setSearch, 
-    setStatusFilter, 
+  const {
+    filters,
+    setSearch,
+    setStatusFilter,
     setSort,
     insertSampleData,
     isLoading
@@ -21,7 +21,7 @@ const FiltersAndSearch = () => {
     closed: filters.status === 'all' || filters.status === 'Completed',
     canceled: filters.status === 'all' || filters.status === 'Cancelled'
   });
-  
+
   const filterRef = useRef(null);
 
   // Update search when debounced value changes
@@ -43,21 +43,21 @@ const FiltersAndSearch = () => {
 
   const handleSaveFilters = () => {
     const { active, closed, canceled } = tempFilters;
-    
+
     // Determine the filter value based on selections
     if (active && closed && canceled) {
       setStatusFilter('all');
     } else if (active && !closed && !canceled) {
-      setStatusFilter('Active');
+      setStatusFilter('received');
     } else if (!active && closed && !canceled) {
-      setStatusFilter('Completed');
+      setStatusFilter('completed');
     } else if (!active && !closed && canceled) {
-      setStatusFilter('Cancelled');
+      setStatusFilter('archived');
     } else {
       // Multiple selections - we'll use 'all' for now
       setStatusFilter('all');
     }
-    
+
     setShowFilters(false);
   };
 
@@ -128,7 +128,7 @@ const FiltersAndSearch = () => {
               <div className="absolute right-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
                 <div className="p-4">
                   <div className="text-sm font-medium text-gray-900 mb-3">RFP STATUS</div>
-                  
+
                   <div className="space-y-3">
                     <label className="flex items-center">
                       <input
@@ -139,7 +139,7 @@ const FiltersAndSearch = () => {
                       />
                       <span className="ml-3 text-sm text-gray-700">Active</span>
                     </label>
-                    
+
                     <label className="flex items-center">
                       <input
                         type="checkbox"
@@ -149,7 +149,7 @@ const FiltersAndSearch = () => {
                       />
                       <span className="ml-3 text-sm text-gray-700">Closed</span>
                     </label>
-                    
+
                     <label className="flex items-center">
                       <input
                         type="checkbox"
@@ -160,7 +160,7 @@ const FiltersAndSearch = () => {
                       <span className="ml-3 text-sm text-gray-700">Canceled</span>
                     </label>
                   </div>
-                  
+
                   <button
                     onClick={handleSaveFilters}
                     className="w-full mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 font-medium"

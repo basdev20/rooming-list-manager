@@ -1,4 +1,3 @@
-import React from 'react';
 import RoomingListCard from './RoomingListCard';
 
 const EventGroup = ({ eventName, roomingLists }) => {
@@ -19,17 +18,17 @@ const EventGroup = ({ eventName, roomingLists }) => {
 
       {/* Rooming Lists Container */}
       <div className="relative">
-        <div 
+        <div
           className={`flex gap-6 ${shouldShowScrollbar ? 'overflow-x-auto scrollbar-thin pb-4' : ''}`}
-          style={{ 
+          style={{
             scrollSnapType: 'x mandatory',
             msOverflowStyle: 'none',
             scrollbarWidth: 'thin'
           }}
         >
           {roomingLists.map((roomingList) => (
-            <div 
-              key={roomingList.roomingListId} 
+            <div
+              key={roomingList.roomingListId}
               className="flex-shrink-0"
               style={{ scrollSnapAlign: 'start' }}
             >
@@ -62,4 +61,4 @@ const EventGroup = ({ eventName, roomingLists }) => {
   );
 };
 
-export default EventGroup; 
+export default EventGroup;

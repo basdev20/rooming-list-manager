@@ -1,4 +1,3 @@
-import React from 'react';
 import { format } from 'date-fns';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import { useApp } from '../context/AppContext';
@@ -48,10 +47,10 @@ const RoomingListCard = ({ roomingList }) => {
     try {
       console.log('🔍 View Bookings clicked for rooming list:', roomingList.rfpName);
       console.log('🏨 Rooming List ID:', roomingList.roomingListId);
-      
+
       // Fetch bookings for this rooming list
       const bookings = await fetchBookings(roomingList.roomingListId, null);
-      
+
       // Log bookings to console as required by the assessment
       console.log('📋 === BOOKINGS FOR ROOMING LIST ===');
       console.log('🏷️ RFP Name:', roomingList.rfpName);
@@ -61,11 +60,11 @@ const RoomingListCard = ({ roomingList }) => {
       console.log('📅 Cut-off Date:', roomingList.cutOffDate);
       console.log('📝 Agreement Type:', roomingList.agreement_type);
       console.log('🏷️ Status:', roomingList.status);
-      
+
       if (bookings.length > 0) {
         console.log('📋 Booking Details:');
         console.table(bookings);
-        
+
         // Additional detailed logging
         bookings.forEach((booking, index) => {
           console.log(`🏨 Booking ${index + 1}:`, {
@@ -80,13 +79,13 @@ const RoomingListCard = ({ roomingList }) => {
         console.log('❌ No bookings found for this rooming list');
       }
       console.log('='.repeat(40));
-      
+
       // Also show in modal for better UX
       await fetchBookings(roomingList.roomingListId, roomingList);
-      
+
       // Success notification
       toast.success(`Found ${bookings.length} booking${bookings.length !== 1 ? 's' : ''} - check console for details`);
-      
+
     } catch (error) {
       console.error('❌ Failed to fetch bookings:', error);
       toast.error('Failed to fetch bookings');
@@ -150,7 +149,7 @@ const RoomingListCard = ({ roomingList }) => {
         >
           View Bookings ({bookingCount})
         </button>
-        
+
         {/* View Agreement PDF Icon Button */}
         <button
           onClick={handleViewAgreement}

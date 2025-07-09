@@ -1,4 +1,3 @@
-import React from 'react';
 import { Toaster } from 'react-hot-toast';
 import { AppProvider } from './context/AppContext';
 import Header from './components/Header';
@@ -15,7 +14,7 @@ function App() {
         <Dashboard />
         <AuthModal />
         <BookingsModal />
-        
+
         {/* Toast Notifications */}
         <Toaster
           position="top-right"
@@ -44,4 +43,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;

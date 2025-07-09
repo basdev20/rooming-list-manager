@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { useApp } from '../context/AppContext';
 
 const AuthModal = () => {
-  const { 
-    showLoginModal, 
-    showRegisterModal, 
-    hideModals, 
-    login, 
-    register, 
+  const {
+    showLoginModal,
+    showRegisterModal,
+    hideModals,
+    login,
+    register,
     isLoading,
     openLoginModal,
     openRegisterModal
@@ -75,7 +75,7 @@ const AuthModal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -120,7 +120,7 @@ const AuthModal = () => {
     <div className="fixed inset-0 z-50 overflow-y-auto">
       <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         {/* Background overlay */}
-        <div 
+        <div
           className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
           onClick={handleClose}
         ></div>

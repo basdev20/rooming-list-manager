@@ -4,11 +4,11 @@ import FiltersAndSearch from './FiltersAndSearch';
 import EventGroup from './EventGroup';
 
 const Dashboard = () => {
-  const { 
-    isAuthenticated, 
-    filteredRoomingLists, 
-    isLoadingRoomingLists, 
-    fetchRoomingLists 
+  const {
+    isAuthenticated,
+    filteredRoomingLists,
+    isLoadingRoomingLists,
+    fetchRoomingLists
   } = useApp();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const Dashboard = () => {
   // Group rooming lists by event
   const groupedRoomingLists = React.useMemo(() => {
     const groups = {};
-    
+
     filteredRoomingLists.forEach(roomingList => {
       const eventName = roomingList.eventName || 'Unknown Event';
       if (!groups[eventName]) {
@@ -87,7 +87,7 @@ const Dashboard = () => {
               No Rooming Lists Found
             </h3>
             <p className="text-gray-600 mb-8 max-w-md mx-auto">
-              Get started by inserting sample data or creating your first rooming list. 
+              Get started by inserting sample data or creating your first rooming list.
               Use the "Insert Bookings and Rooming Lists" button above to load example data.
             </p>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-lg mx-auto">

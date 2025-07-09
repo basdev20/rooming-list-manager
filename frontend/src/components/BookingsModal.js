@@ -1,4 +1,3 @@
-import React from 'react';
 import { format } from 'date-fns';
 import { XMarkIcon, CalendarIcon, UserIcon, HomeIcon } from '@heroicons/react/24/outline';
 import { useApp } from '../context/AppContext';
